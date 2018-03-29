@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+        li{list-style: none;}
+        div{
+            width: 50px;
+            height: 50px;
+            background: red;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+<div class="box">4</div>
+
+<script>
+
+    /*
+    *
+    *       bind
+    *           不兼容IE8及以下
+    *
+    *           在函数执行时才改变this执行，不会主动执行函数
+    *
+    * */
+    var box = document.getElementsByClassName('box');
+
+    /*for(var i=0;i<box.length;i++){
+        box[i].onclick = function () {
+            console.log(this)
+        }.bind(box[3])
+    }*/
+
+    for(var i=0;i<box.length;i++){
+        box[i].onclick = auto.bind(box[3])
+    }
+
+
+    function auto(x,y) {
+        //console.log(This)
+        //console.log(x+y)
+        console.log(this)
+    }
+
+
+</script>
+</body>
+</html>

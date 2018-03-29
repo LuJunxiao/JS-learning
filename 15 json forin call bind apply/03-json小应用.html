@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        table{
+            width:500px;
+            border-collapse: collapse;
+            margin:50px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>学号</td>
+            <td>名字</td>
+            <td>得分</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr>
+            &lt;!&ndash;<td>123</td>
+            <td>赵大狗</td>
+            <td>59</td>&ndash;&gt;
+        </tr>-->
+        </tbody>
+    </table>
+<script>
+    var data = [
+        {
+            id : "tz2017080430",
+            name : '永无止境',
+            mark : '59'
+        },
+        {
+            id : "tz2017080431",
+            name : '深蓝',
+            mark : '89'
+        },
+        {
+            id : "tz2017080432",
+            name : '初识',
+            mark : '69'
+        },
+        {
+            id : "tz2017080433",
+            name : 'tobee',
+            mark : '99'
+        },
+        {
+            id : "tz2017080434",
+            name : 'Rin',
+            mark : '88'
+        },
+        {
+            id : "tz2017080435",
+            name : '乘风破浪',
+            mark : '78'
+        }
+    ]
+
+    var Tb = document.getElementsByTagName('tbody')[0];
+
+        for(var i=0;i<data.length;i++){
+            Tb.innerHTML += "<tr><td>" + data[i].id+"</td><td>"+ data[i].name +"</td><td>"+data[i].mark+"</td></tr>"
+        }
+</script>
+</body>
+</html>

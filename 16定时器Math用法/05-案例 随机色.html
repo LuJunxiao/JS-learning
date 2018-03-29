@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box span{
+            float: left;
+            width:80px;
+            height: 40px;
+            font-size:16px;
+            font-weight: bold;
+            color:#fff;
+            text-align: center;
+            line-height:40px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+
+</div>
+
+<script>
+
+    var arr = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d",'e',"f"]
+
+    
+    var x = setInterval(function () {
+        var aaa = Color();
+        box.innerHTML += "<span style='background: "+ aaa +";'>"+ aaa +"</span>"
+    },100)
+
+    document.onclick = function () {
+        clearInterval(x)
+
+    }
+
+
+    function Color() {
+        var str = "#"
+        for(var i=0;i<6;i++){
+            str += arr[Math.floor(Math.random()*16)]  // [0,15]
+        }
+        return str;
+    }
+</script>
+</body>
+</html>

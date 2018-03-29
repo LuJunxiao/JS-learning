@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            width:400px;
+            margin:50px auto;
+            user-select: none;
+        }
+        #searchTxt{
+            width:398px;
+            height: 35px;
+            border:1px solid #ddd;
+            font-size:20px;
+            text-indent:5px;
+        }
+        #res{
+            width:398px;
+            border:1px solid #999;
+            border-top:none;
+        }
+        #res li{
+            line-height:25px;
+            text-indent:5px;
+            cursor:pointer;
+        }
+        #res li:hover{
+            background: #999;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div id="box" spellcheck="false">
+    <input type="text" id="searchTxt">
+    <ul id="res"></ul>
+</div>
+<script>
+
+    /*
+    *
+    *   jsonp
+    *       是一种使用模式，通过一些技术实现跨域操作，通过script标签src属性，来获取别人的服务器的数据
+    *
+    *
+    * */
+
+
+    searchTxt.onkeyup=function () {
+        var val = this.value;//获取搜索框的值
+        var oS = document.createElement("script");
+        oS.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+val+"&cb=wind"
+        document.body.appendChild(oS);
+        oS.onload=function(){
+            document.body.removeChild(oS)
+        }
+    };
+    
+    
+
+    function wind(msg) {
+        var arr = msg.s;//实参json里的搜索结果项
+        res.innerHTML = "";
+        for(var i=0;i<arr.length;i++){
+            res.innerHTML += "<li>"+arr[i]+"</li>"
+        }
+    }
+
+    res.onclick=function (e) {
+        var This = e.target; //存事件源
+        if(/li/i.test(This.nodeName)){
+            window.open("https://www.baidu.com/s?wd="+This.innerHTML)
+        }
+    }
+
+
+
+
+
+
+
+    /*console.log(decodeURI("%E6%B7%B1%E8%93%9D"))
+    //%E6%B7%B1%E8%93%9D
+    //%E6%B7%B1%E8%93%9D*/
+</script>
+</body>
+</html>

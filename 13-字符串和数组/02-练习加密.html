@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<input type="text">
+<input type="button" value="加密">
+<p></p>
+<script>
+    var inp = document.getElementsByTagName('input');
+    var op = document.getElementsByTagName('p');
+    
+    inp[1].onclick = function () {
+
+        var val = inp[0].value;
+        var aa = '';
+        for(var i=0;i<val.length;i++){
+            aa += String.fromCharCode( val.charCodeAt(i)+1)
+        }
+        op[0].innerHTML = aa;
+    }
+
+</script>
+</body>
+</html>

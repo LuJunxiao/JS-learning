@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<script>
+    /*
+    *   转义符
+    *       \
+    *      特殊字符还有那些？
+    *
+    *
+    *
+    *   特殊字符
+    *
+    *       \n  \r \t
+    *
+    *       \d  数字
+    *       \D  非数字
+    *       \s  空格
+    *       \S  非空格
+    *       \w  字符(数字、字母、_)
+    *       \W  非字符(不是\w的都是匹配内容)
+    *
+    *       \b  单词边界   起始  结束  连词符（除了\w  其他的都属于连词符）  （独立的部分）
+    *       \B  非独立部分
+    *
+    *
+    *
+    *
+    * */
+
+
+    var str = "this1";
+
+    var reg = /this\B/;
+
+
+    alert(reg.test(str))
+
+
+</script>
+
+</body>
+</html>

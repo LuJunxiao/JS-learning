@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <span class="span">spanspanspan</span>
+    <p class="p1" id="p">
+
+    </p>
+
+</div>
+
+<script>
+    /*
+          创建节点
+    *       document.createElement( 需要创建的节点的名字 )
+    *
+    *     添加节点
+    *       对象.appendChild（刚才创建的节点）
+    *
+    *       一般都是创建好了以后，就把需要的内容先修改好，然后再用appendChild添加到某个对象里去
+    *
+    *       insertBefore()
+    *
+    *       父级节点. insertBefore（ 新创建的节点 ， 父级节点下某个已经存在的的子节点）
+    *           参数必须两个；！！！！！！
+    *
+    *
+    *
+    *       删除节点的方法
+    *
+    *       removeChild（）；
+    *           爸爸.removeChild（需要删除的儿子）
+    *               这个删除仅仅是把这个对象 移出了 HTML ，它还会保存在js里
+    *
+    *
+    *
+    * */
+
+
+/*    var oP = document.getElementById('p1');
+
+    oP.onclick= function () {
+        alert(this.innerHTML)
+    }
+
+    var a = document.createElement("p");
+
+    a.innerHTML = "createElement p";
+
+    a.onclick = function () {
+        alert(this.innerHTML)
+    }*/
+
+
+    //box.appendChild(a);
+
+
+    //box.innerHTML= box.innerHTML + "<div>innerHTML Div</div>"
+
+
+
+
+    //var oP = box.querySelector('p');
+
+  /*  var a = document.createElement('p');
+
+    a.innerHTML = "CE p"*/
+
+    //box.appendChild(a);
+
+    //box.insertBefore(a, box.children[0])
+
+
+
+ /*   var op = document.getElementById('p');
+    var oSpan = document.getElementsByClassName('span')
+
+    oSpan[0].onclick = function () {
+        alert(this.innerHTML)
+    }
+
+
+    var obj = oSpan[0].cloneNode(true);
+
+
+    op.appendChild(obj)*/
+
+
+
+    var oSpan = document.querySelector('span');
+
+
+
+    //oSpan.parentNode.removeChild(oSpan);
+
+    p.parentNode.appendChild(oSpan);
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    *       动态获取
+    *           obj.getElementsByClassName()  //有兼容性问题 不兼容IE8及以下
+    *           obj.getElementsByTagName()
+    *
+    *           document.getElementsByName()
+    *
+    *
+    *       静态获取
+    *           obj.querySelectorAll()      //不兼容IE8以下（不包括IE8）
+    *           obj.querySelector()         //同上
+    *
+    *           document.getElementById()
+    *
+    *
+    * */
+
+
+   /* var oP = document.getElementsByTagName('p');
+
+    alert(oP.length)
+
+    var a = document.createElement('p');
+
+    box.appendChild(a);
+
+
+
+    alert(oP.length)
+*/
+
+    /*var oP = box.getElementsByClassName("p1");
+
+    oP[0].innerHTML = "123"*/
+</script>
+</body>
+</html>

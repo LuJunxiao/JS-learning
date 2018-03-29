@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>Tz-34-Js</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+
+	</style>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <script>
+    	
+    	$.ajax({
+    		url : "1.php",
+    		data : {
+    			user : 123,
+    			pwd : "789"
+    		},
+    		context : "123",
+    		success : function (msg) {
+    			console.log(this)
+    		}
+    	})
+
+
+
+
+    </script>
+
+</body>
+</html>

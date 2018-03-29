@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>1</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    /*
+    *
+    *       requestAnimationFrame()
+    *           不支持IE9及以下浏览器
+    *
+    *           不需要设置时间间隔，会全贴合每个使用它的浏览器的刷新频率；
+    * */
+    //请求动画帧   的兼容IE9及以下浏览器的写法
+    window.requestAnimationFrame = window.requestAnimationFrame||function (fn) {return setTimeout(fn,1000/60)}
+    window.cancelAnimationFrame = window.cancelAnimationFrame ||clearTimeout;
+
+
+
+
+
+    var num = 1,
+        timer;
+
+    fn();
+
+   function fn() {
+
+        document.title = ++num;
+        timer  = requestAnimationFrame(fn)
+   }
+
+    document.onclick = function () {
+        cancelAnimationFrame(timer)
+    }
+    /*function fn() {
+        document.title = ++num;
+        setTimeout(fn)
+    }*/
+</script>
+</body>
+</html>

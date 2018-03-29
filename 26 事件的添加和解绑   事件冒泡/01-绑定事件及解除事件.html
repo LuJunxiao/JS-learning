@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+
+<script>
+    //绑定事件
+    /*document.onclick=function () {
+        alert(1);
+
+    }
+    //解除事件
+    //document.onclick=null;
+    document.onclick=function () {
+        alert(2)
+    }*/
+
+    /*
+    *   addEventListener()
+    *
+    *   对象 . addEventListener("click",fun(){},false)
+    *       不兼容IE678;
+    *           事件名称不带on
+    *           第二个是事件函数
+    *           事件捕获。默认false
+    *   兼容IE678
+    *       用attachEvent（）
+    *           只接收俩参数
+    *               第一个是事件名称，是带on的事件名字
+    *               第二个是事件函数。
+    *
+    *
+    *
+    *
+    * */
+/*    document.addEventListener("click",fn1)
+
+    document.addEventListener("click",fn2)*/
+
+    function fn1() {
+        alert(1)
+    }
+    function fn2() {
+        alert(2)
+    }
+
+    /*document.attachEvent("onclick",function () {
+        alert(1)
+    })
+    document.attachEvent("onclick",fn2)
+
+    //document.removeEventListener("click",fn2)
+    document.detachEvent("onclick",function () {
+        alert(2)
+    })*/
+
+    /*addEvent(document,"click",fn1);
+
+    //添加事件的兼容写法
+    function addEvent(obj,eName,eFn) {
+        if(obj.attachEvent){ //判断支不支持attacgevent方法，如果支持就是ie678
+            obj.attachEvent("on"+eName,eFn) //兼容IE678
+        }else{
+            obj.addEventListener(eName,eFn)//兼容标准浏览器
+        }
+    }*/
+
+    /*document.addEventListener("click",function () {
+        alert(1)
+    })
+
+    document.removeEventListener("click",function () {
+        alert(1)
+    })*/
+
+
+
+</script>
+</body>
+</html>

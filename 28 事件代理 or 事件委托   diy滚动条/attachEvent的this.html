@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<div id="box">123</div>
+<script>
+
+    /*
+    *   e.target
+    *       不兼容IE678
+    *   e.srcElement
+    *       兼容IE678
+    *           相当于就是IE678下，用来返回事件源的方法
+    *
+    * */
+    addEvent(box,"click",fn1);
+
+
+    function fn1(e) {
+        e = e || window.event;
+        var This = e.target||e.srcElement;
+
+        //alert(This.innerHTML)
+    }
+
+    function addEvent(obj,eName,eFn) {
+        !-[1,]?obj.attachEvent("on"+eName,eFn):obj.addEventListener(eName,eFn)
+    }
+
+
+</script>
+</body>
+</html>

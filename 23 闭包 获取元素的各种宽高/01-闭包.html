@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+
+    /*
+    *
+    *       闭包产生的条件
+    *           1.  函数里面嵌套函数
+    *           2.  内部函数引用了外部函数的变量或者参数;
+    *
+    *       作用
+    *           内部函数使用的那个外部函数的变量会被永久保存下来
+    *
+    *           优点也缺点：内部函数引用的那个变量被永久保存，不会被回收。
+    *
+    *
+    *
+    *
+    * */
+
+
+
+
+    /*function fn() {
+        var a = 1;
+        alert(++a)
+    }
+
+    fn();*/
+
+    /*function fn() {
+        var a = 1;
+        function fn1() {
+            alert(++a)
+        }
+        return fn1;
+    }
+
+    var b = fn();
+
+    fn()()
+    b();
+    b();
+    b();
+
+    fn();*/
+
+
+
+</script>
+</body>
+</html>

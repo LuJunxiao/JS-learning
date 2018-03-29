@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body style="height:2000px">
+<div id="box"></div>
+<script>
+    /*
+        滚轮事件
+    *   onmousewheel
+    *       不兼容火狐
+    *
+    *   DOMMouseScroll
+    *       只支持火狐
+    *
+    *   e.wheelDelta;
+    *       记录滚动事件的方向
+    *       负值是往后拉
+    *       正值就是往前推
+    *
+    *
+    * */
+   /* document.onmousewheel =function () {
+        document.body.innerHTML += "1+<br>"
+    }*/
+
+   /*addEvent(document,"mousewheel",fn1)*/
+
+
+
+
+   function fn1(e) {
+        e = e||window.event;
+        var a = e.wheelDelta;
+        box.innerHTML += a+"<br>"
+   }
+
+
+   //addEvent(document,"DOMMouseScroll",fn1);
+   addEvent(document,"mousewheel",fn1);
+
+
+   //添加事件
+   function addEvent(obj,eName,eFn) {
+       if(obj.attachEvent){ //判断支不支持attacgevent方法，如果支持就是ie678
+           obj.attachEvent("on"+eName,eFn) //兼容IE678
+       }else{
+           obj.addEventListener(eName,eFn)//兼容标准浏览器
+       }
+   }
+   //移除事件
+   function removeEvent(obj,eName,eFn) {
+       if(obj.attachEvent){ //判断支不支持attacgevent方法，如果支持就是ie678
+           obj.detachEvent("on"+eName,eFn) //兼容IE678
+       }else{
+           obj.removeEventListener(eName,eFn)//兼容标准浏览器
+       }
+   }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<script>
+    /*
+    *   post发送的时候
+    *       *需要设置请求头(数据格式)
+    *       *要把发送的数据放在send的括号里
+    *
+    *
+    * */
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("post" , "2.php");
+    //post必须设置请求头
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.send("name=fy&age=18&length=18");
+    xhr.onreadystatechange=function () {
+        if(this.readyState===4){
+            alert(this.responseText)
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

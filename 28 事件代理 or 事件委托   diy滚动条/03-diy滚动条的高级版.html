@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html onselectstart="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+        li{list-style: none;}
+        #box{
+            overflow: hidden;
+            position: relative;
+            margin:50px auto;
+            width:710px;
+            height: 510px;
+            background: #FCF3B4;
+            padding:15px;
+            /*user-select:none;*/
+        }
+        #content{
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            padding:15px;
+        }
+        #content .pbold{
+            font-weight: bold;
+            line-height:60px;
+            font-size:16px;
+        }
+        #scroll{
+            position: absolute;
+            right: 0;
+            top: 0;
+            height:100%;
+            width:15px;
+            background: #ddd;
+        }
+        #lump{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height:50px;
+            width:100%;
+            background: #000;
+        }
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body style="height:2000px">
+<div id="box" >
+    <div id="content">
+        <h2>阿甘正传</h2><br/>
+        <p class="pbold">1、Life was like a box of chocolates, you never know what you're going to get.</p>
+        <p>生命就像一盒巧克力，结果往往出人意料。</p>
+        <p class="pbold">2、Stupid is as stupid does.</p>
+        <p>蠢人做蠢事，也可理解为傻人有傻福。</p>
+        <p class="pbold">3、Miracles happen every day.</p>
+        <p>奇迹每天都在发生。</p>
+        <p class="pbold">4、it made me look like a duck in water.</p>
+        <p>它让我如鱼得水。</p>
+        <p>我不懂我们是否有着各自的命运，还是只是到处随风飘荡。</p>
+        <p class="pbold">6、Death is just a part of life, something we're all destined to do.</p>
+        <p>死亡是生命的一部分，是我们注定要做的一件事。</p>
+        <p class="pbold">7、You have got to put the past behind you before you can move on.</p>
+        <p>放下包袱，继续前进。</p>
+        <p class="pbold">8、It was like just before the sun goes to bed down on the bayou. There was a million sparkles on the river.</p>
+        <p>就像太阳在落山前映射在河口上，有无数的亮点在闪闪发光。</p>
+        <p class="pbold">9、If there is anything you need, I will not be far away.</p>
+        <p>只要你需要，我就在这里。</p>
+        <p class="pbold">10、I am a man of my word.</p>
+        <p>我是信守承诺的人。</p>
+        <p class="pbold">11、There is one small step for a man,a giant leap for mankind.</p>
+        <p>某人的一小步就是人类的一大步。</p>
+
+
+    </div>
+    <div id="scroll">
+        <div id="lump"></div>
+    </div>
+</div>
+<script>
+    var oLump = document.getElementById("lump"),
+        oCon = document.getElementById("content"),
+        oSCroll = document.getElementById("scroll");
+    var oLumpH = Math.pow(box.clientHeight,2)/oCon.offsetHeight;
+    oLump.style.height = oLumpH + "px";
+
+
+    //滑块运动的最大值
+    maxLTop = oSCroll.offsetHeight - oLump.offsetHeight;
+    maxConTop = oCon.offsetHeight - box.clientHeight;
+
+
+
+
+    oLump.onmousedown=function (e){
+        e = e || window.event;
+        var sY = e.clientY,     //获取鼠标的初始Y坐标
+            sT = this.offsetTop;    //获取按下时。滑块top值
+
+
+
+        document.onmousemove=function (e){
+            e = e || window.event;
+            var top = e.clientY-sY + sT;
+            setT(top);
+        }
+    }
+
+    document.onmouseup=function () {
+        this.onmousemove = null;
+    }
+    //给box添加滚动事件
+    //e 是滚轮事件对象   d  滚轮的滚动方法 负值是朝自己拉，正 就是往前推
+    mousewheel(box,function (e,d) {
+        var top = oLump.offsetTop;
+        if(d<0){
+            top += 30;
+        }else{
+            top -= 30;
+        }
+        setT(top);
+
+
+        return false;
+    });
+
+    //复制top的封装
+    function setT(top) {
+        top = Math.min(maxLTop,top);
+        top = Math.max(0,top);
+
+
+        oLump.style.top = top + "px";
+        var conTop = maxConTop*top/maxLTop;
+        oCon.style.top =  -conTop + "px";
+    }
+
+    //封装滚轮事件
+    function mousewheel(obj,Fn) {
+        function eFn(e) {
+            e = e||window.event;
+            //假事件函数执行，来判断是否需要阻止默认事件
+            if(Fn.call(this,e,e.wheelDelta/120||-e.detail/3)===false){
+                !-[1,]?e.returnValue=false:e.preventDefault();
+            }
+
+        }
+        //判断是否是火狐，如果是，则用火狐的方法添加，不是就直接添加
+        document.onmousewheel===null?obj.onmousewheel=eFn:obj.addEventListener("DOMMouseScroll",eFn);
+
+    }
+
+
+
+    
+    oSCroll.onclick=function (e){
+        e = e || window.event;
+        //鼠标距离可视区域的top + 滚动高 - 对象到文档的高度 - lump的高度一半
+        var top = e.clientY - getObjoffset(box).top - oLumpH/2 + (document.documentElement.scrollTop||document.body.scrollTop);
+
+        setT(top);
+
+
+
+    };
+
+    function getObjoffset(obj) {
+        var objJson = {
+            left : 0,
+            top :0
+        };
+        while(obj!==document.body){
+            objJson.left += obj.offsetLeft;
+            objJson.top += obj.offsetTop;
+            obj = obj.offsetParent;
+        }
+        return objJson;
+    }
+    
+
+
+</script>
+</body>
+</html>

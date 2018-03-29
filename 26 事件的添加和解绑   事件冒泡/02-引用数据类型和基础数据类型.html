@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    *   基础数据类型
+    *       number  string  boolean undefined  null
+    *       在做比较时，只需要比较值相不相等；（看是不是长得一样）
+    *       在赋值的时候，就是单纯的把值赋值一份給别人，給完以后与自己没有关系；
+    *
+    *   引用数据类型
+    *       object  function
+    *       在做比较时，其实它是进行比较内存地址是否一致；
+    *
+    *
+    * */
+
+    var a = "风屿",
+        b = "风屿",
+        c = [1,2,3];
+
+
+
+    var d = c;
+
+    d = [1,2,3,4,5,8,7]
+    //d.push(4);
+
+   /* alert(d);
+    alert(c)*/
+
+
+   //alert(c===d)
+
+    alert("[1,2,3]"==="[1,2,3]")
+
+
+</script>
+</body>
+</html>

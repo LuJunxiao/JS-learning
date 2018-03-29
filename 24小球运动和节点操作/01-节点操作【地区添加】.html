@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            height:550px;
+            padding-top:30px;
+            width:100%;
+            background: -webkit-linear-gradient(top,#8DC1DD,#F7A888);
+            
+        }
+        #box .content{
+            width:1000px;
+            height:550px;
+            margin:auto;
+        }
+        #box .content .left,#box .content .right{
+            float: left;
+            width:450px;
+            height:450px;
+            padding:100px 0 0 50px;
+            
+        }
+        #box .content .left{
+            background: #fff;
+        }
+        #box .content .right{
+            background: rgba(0,0,0,.5);
+        }
+        #box .left .top{
+            color:#F5A63A;
+        }
+        #box .left .area{
+            font-size:14px;
+            cursor: pointer;
+        }
+        #box .left .area:hover{
+            color:#F5A63A;
+        }
+
+        #box .left ul{
+            margin-left:15px;
+        }
+        #box .left ul li, #box .right ul li{
+            margin:5px;
+            float: left;
+            height:30px;
+            font-size:14px;
+            line-height: 30px;
+            text-align: center;
+            padding:0 5px;
+            border:1px solid #888;
+        }
+        #box .left ul li span {
+            padding: 0 8px;
+            cursor: pointer;
+        }
+        #box .right ul li{
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="content">
+            <div class="left">
+                <p>
+                    <span class="top">热门目的地：</span>
+                    <span class="area">马来西亚</span>
+                    <span class="area">泰国</span>
+                    <span class="area">新西兰</span>
+                    <span class="area">三亚</span>
+                    <span class="area">云南</span>
+                </p>
+                <ul>
+                    <!--<li>马来西亚 |<span>X</span></li>-->
+                    <!--<li>马来西亚 |<span>X</span></li>-->
+                    <!--<li>马来西亚 |<span>X</span></li>-->
+                </ul>
+            </div>
+            <div class="right">
+                <ul>
+                    <!--<li>马来西亚</li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    (function (){
+        var aArea = document.getElementsByClassName('area'),
+            oLeftUl = document.querySelector("#box .left ul"),
+            oRightUl = document.querySelector("#box .right ul"),
+            length=aArea.length;
+        //注册地点的span标签的点击事件
+        for(var i=0;i<length;i++){
+            aArea[i].flag = false;  //设置一个自定义属性，用来判断是否被添加过了
+            aArea[i].onclick = function () {
+                //用来判断是否添加过了
+                if(!this.flag){
+                    var oLi = document.createElement("li"),//左边盒子的li
+                        oLi2 = document.createElement("li"),//右边盒子的li
+                        oSpan = document.createElement("span"),
+                        This = this;
+                    oLi.innerHTML = this.innerHTML + " |";//给左边的li的innerHTML添加内容
+                    oLi2.innerHTML = this.innerHTML;
+                    oSpan.innerHTML = "X";
+                    //注册X按钮的点击事件
+                    oSpan.onclick =function () {
+                        oLeftUl.removeChild(oLi);//点击X以后，删除左边盒子的li
+                        oRightUl.removeChild(oLi2)//点击X以后，删除右边盒子的li
+                        This.flag = false;
+                    };
+                    //把Li添加到对应的ul里去
+                    oLi.appendChild(oSpan);
+                    oLeftUl.appendChild(oLi);
+                    oRightUl.appendChild(oLi2);
+                    this.flag = true;
+                }
+            }
+            
+        }
+
+    })()
+
+
+
+
+
+</script>
+
+</body>
+</html>

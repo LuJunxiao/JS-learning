@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    *       数组里的length是可读可写
+    *
+    * */
+    var arr = [1,5,32,13,6,9,8,10,12];
+        /*arr.length = 10;
+        console.log(arr)*/
+        //arr.length = 0;
+        //console.log(arr)
+
+        /*arr[10] = 'false';
+        console.log(arr[6])*/
+
+        //var arr1 = arr.push('6668888',123,456)  // 往数组的最后一位去添加值，返回length
+        //arr.unshift('123456', '新新')          //往数组的第一位追加数值，返回length
+        //arr.pop();                     //删除最后一个  并返回
+        //arr.shift();                    //删除数组的第一个数据，并返回
+
+        //var arr1 = arr.splice(0,0,'清水');       //从指定位置开始，删除规定个数，并往指定的位置添加数据，返回被删除的数据
+
+
+        /*arr.sort(function (a,b) {
+            return 1;
+        });*/
+        //arr.reverse()
+    //var arr1 = [123];
+
+
+    //var newArr = arr.concat(arr1);   //把两个数组合并为一个新的数组
+    //var str = arr.join('，')          //数组转字符串的方法  （join用传的参数来连接）
+
+   /* var x = arr.filter(function (q){
+        if(q%2){
+            return true;
+        }
+    })*/                    //按照一定的规则来进行过滤，
+    var str = '123';        //用来检测一个对象是不是一个数组
+
+    console.log(Array.isArray(arr));
+    console.log(Array.isArray(str))
+
+</script>
+</body>
+</html>

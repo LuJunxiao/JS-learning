@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+
+    addEvent(document,"click",fn1)
+    addEvent(document,"click",fn2)
+
+    removeEvent(document,"click",fn2)
+
+    function fn1(e) {
+        console.log(e)
+        alert(666)
+    }
+    function fn2() {
+        alert("jj boom")
+    }
+
+    //添加事件
+    function addEvent(obj,eName,eFn) {
+        if(obj.attachEvent){ //判断支不支持attacgevent方法，如果支持就是ie678
+            obj.attachEvent("on"+eName,eFn) //兼容IE678
+        }else{
+            obj.addEventListener(eName,eFn)//兼容标准浏览器
+        }
+    }
+    //移除事件
+    function removeEvent(obj,eName,eFn) {
+        if(obj.attachEvent){ //判断支不支持attacgevent方法，如果支持就是ie678
+            obj.detachEvent("on"+eName,eFn) //兼容IE678
+        }else{
+            obj.removeEventListener(eName,eFn)//兼容标准浏览器
+        }
+    }
+
+</script>
+</body>
+</html>

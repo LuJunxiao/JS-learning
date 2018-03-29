@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="json2.js"></script>
+</head>
+<body>
+
+<script>
+    /*
+    *   发送json
+    *
+    *   接收json
+    *
+    *
+    * */
+
+    var json = {
+        "name" : "yu",
+        "age" : "18",
+        "length" : "18"
+    };
+
+    var val = "";
+
+    for (var key in json){
+        val += key + "=" + json[key] + "&"
+    }
+
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('post' , '1.php');
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.send(val);
+    xhr.onreadystatechange=function () {
+        if(this.readyState===4){
+            alert(this.responseText)
+        }
+    }
+
+
+
+
+
+
+    /*var xhr = new XMLHttpRequest();
+    xhr.open('get' , '1.php?name=123&age=18&length=18', true);
+    xhr.send();
+    xhr.onreadystatechange=function () {
+        if(this.readyState===4){
+            var res = this.responseText;
+            res = JSON.parse(res);
+                alert(res.name)
+        }
+    }*/
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+</ul>
+<script>
+
+    var aLi = document.getElementsByTagName('li');
+
+       for(var i=0;i<aLi.length;i++){
+
+        (function fn(i){
+            aLi[i].onclick = function () {
+                alert(i)  // i 被永久保存下来
+            }
+        })(i)
+    }
+
+    /*for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function () {
+            alert(i)
+        }
+    }*/
+
+    /*function fn1() {
+        var a = 1;
+        alert(++a)
+    }
+    fn1();*/
+
+
+</script>
+</body>
+</html>

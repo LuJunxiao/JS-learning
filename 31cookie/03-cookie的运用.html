@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<p id="lastTime"></p>
+<p id="nowTime"></p>
+<script>
+    var oL = document.getElementById("lastTime"),
+        oN = document.getElementById("nowTime");
+
+    //   lastTime=2017-9-1 22:18:00; newlastTime=2017-9-1 22:18:00
+
+    var lastTime = document.cookie.match(/\blastTime=([^;]+)(;\s|$)/);
+
+    if(lastTime){
+        //不是第一次
+        oL.innerHTML =  "您上次访问的时间："+lastTime[1];
+    }else{
+       //走else的时候 就说明是第一次访问
+        oL.innerHTML = "欢迎，您是第一次访问本站！"
+    }
+
+
+    var data = new Date(),
+        //获取年月日 时分秒
+        YY = data.getFullYear(),
+        MM = data.getMonth()+1,
+        DD = data.getDate(),
+        hh = data.getHours(),
+        mm = data.getMinutes(),
+        ss = data.getSeconds();
+
+    hh = addZero(hh);
+    mm = addZero(mm);
+    ss = addZero(ss);
+    var time = YY+"-"+MM+"-"+DD+" "+hh+":"+mm+":"+ss;
+
+    document.cookie = "lastTime="+time+";expires="+new Date(data.getTime()+3650*24*60*60*1000).toUTCString();
+
+    oN.innerHTML = "本次登录的时间："+time;
+
+    function addZero(n) {
+        return n<10?"0"+n:n+"";
+    }
+
+</script>
+</body>
+</html>

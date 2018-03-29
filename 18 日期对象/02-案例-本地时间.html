@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+
+
+    setInterval(timer(),1000);
+
+    function timer() {
+        var date = new Date(),
+            YY = date.getFullYear(),
+            MM = date.getMonth()+1,
+            DD = date.getDate(),
+            day = date.getDay(),
+            hh = date.getHours(),
+            mm = date.getMinutes(),
+            ss = date.getSeconds(),
+            dayArr = ["日","一","二","三","四","五","六"];
+        box.innerHTML = "现在是"+ YY+"年"+ MM+"月"+DD+"日,星期"+ dayArr[day]+","+ Zero(hh)+"点"+Zero(mm)+"分"+Zero(ss)+"秒";
+        return timer;
+    }
+
+
+    function Zero(num) {
+        return (num<10)?"0"+num:num;
+        /*if(num<10){
+            num = "0"+num;
+        }*/
+        //return num;
+    }
+
+
+</script>
+</body>
+</html>

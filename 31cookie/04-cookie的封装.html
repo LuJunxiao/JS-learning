@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<script>
+
+
+    /*
+    *   封装cookie    "\\d"   /\d/
+    *
+    * */
+
+    setCookie({
+        fengyu : 666,
+        length : 18
+    },10);
+
+    //设置cookie   json是要设置的cookie的信息，time 是过期时间，单位是：天
+    function setCookie( json , time) {
+        var t = new Date( new Date().getTime()+ time*24*60*60*1000).toUTCString();
+        for (var key in json){document.cookie = key+"="+ json[key] + ";expires="+t;}
+    }
+
+    //获取cookie
+    function getCookie(name) {
+        var arr = document.cookie.match(new RegExp("\\b"+name+"=([^;]+)(;\\s|$)"));
+        return arr?arr[1]:"";
+    }
+
+    //删除cookie
+    function removeCookie(name) {
+        var json = {};
+        json[name] = "";
+        setCookie(json,-1)
+    }
+
+    removeCookie("fengyu");
+
+    alert(getCookie("fengyu"))
+</script>
+</body>
+</html>

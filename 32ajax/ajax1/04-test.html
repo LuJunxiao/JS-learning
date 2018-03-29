@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<input type="text" name="user" class="t1" placeholder="user"><br>
+<input type="text" name="pwd" class="t1" placeholder="pwd"><br>
+<input type="text" name="tel" class="t1" placeholder="tel"><br>
+<input type="text" name="email" class="t1" placeholder="email"><br>
+<input type="button" value="ajax提交" id="btn">
+<script>
+
+
+
+    /*var xhr = new XMLHttpRequest();
+    xhr.open("post" , "2.php");
+    //post必须设置请求头
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.send("name=fy&age=18&length=18");
+    xhr.onreadystatechange=function () {
+        if(this.readyState===4){
+            alert(this.responseText)
+        }
+    }*/
+    var txt = document.getElementsByClassName("t1");
+
+    btn.onclick=function () {
+        var val = "";
+        for(var i=0,length=txt.length;i<length;i++){
+            val += txt[i].name + "=" + txt[i].value+(i===length-1?"":"&");
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("post" , "2.php");
+        //post必须设置请求头
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xhr.send(val);
+        xhr.onreadystatechange=function () {
+            if(this.readyState===4){
+                alert(this.responseText)
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

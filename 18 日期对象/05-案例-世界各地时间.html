@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+    <div>
+        纽约时间：<span></span>
+    </div>
+    <div>
+        马德里时间：<span></span>
+    </div>
+    <div>
+        开罗时间：<span></span>
+    </div>
+    <div>
+        莫斯科时间：<span></span>
+    </div>
+    <div>
+        北京时间：<span></span>
+    </div>
+    <div>
+        东京时间：<span></span>
+    </div>
+    <div>
+        悉尼时间：<span></span>
+    </div>
+
+    <script>
+        var aSpan = document.getElementsByTagName('span');
+
+        setInterval(timer(),1000);
+
+        function timer() {
+                //拿到本地时间的时间戳
+           var nowTime = new Date(),
+               //通过本地时间，来获取世间标准时间
+               UTCtime = nowTime.getTime() + nowTime.getTimezoneOffset()*60*1000;
+                var arr = [
+                    getTime(UTCtime + -5*60*60*1000), //纽约时间
+                    getTime(UTCtime + 1*60*60*1000), //马德里时间
+                    getTime(UTCtime + 2*60*60*1000), //开罗时间
+                    getTime(UTCtime + 3*60*60*1000), //莫斯科时间
+                    getTime(UTCtime + 8*60*60*1000), //北京时间
+                    getTime(UTCtime + 9*60*60*1000), //东京时间
+                    getTime(UTCtime + 10*60*60*1000), //悉尼时间
+                ];
+
+                for(var i=0;i<aSpan.length;i++){
+                    var data = arr[i];
+                    aSpan[i].innerHTML = data.YY +"年"+data.MM+"月"+data.DD+"日"+data.hh+ "时"+data.mm+"分"+data.ss+"秒"
+                }
+
+                return timer;
+
+        }
+
+        //把设置个个地区的时间的代码封装
+        function getTime(time) {
+            var date = new Date(time);
+
+            var MM = date.getMonth()+1,
+                DD = date.getDate(),
+                hh = date.getHours(),
+                mm = date.getMinutes(),
+                ss = date.getSeconds();
+            MM = two(MM);
+            DD = two(DD);
+            hh = two(hh);
+            mm = two(mm);
+            ss = two(ss);
+
+            return {
+                YY : date.getFullYear(),
+                MM : MM,
+                DD : DD,
+                hh : hh,
+                mm : mm,
+                ss : ss
+            }
+        }
+
+
+
+
+        //时分秒小于10的时候 在前面补上一个0
+        function two(num) {
+            return num<10?'0'+num:num;
+        }
+
+
+
+    </script>
+
+</body>
+</html>

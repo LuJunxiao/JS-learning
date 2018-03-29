@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+
+
+<script>
+    /*
+    *
+    *       getTimezoneOffset()
+    *           获取的本地时间跟 世界标准时间的  时间差；
+    *
+    *           时间标准时间 - 本地的时间
+    *
+    *
+    * */
+
+
+    var date = new Date();
+    var ss = date.getTime();  //拿到本地时间的毫秒数
+    //console.log(date.toUTCString());  //本地时间通过这个方法可以拿到现在的伦敦时间
+    //console.log(date.toGMTString());
+
+
+
+    //alert(date.getTimezoneOffset()*60*1000)
+    var GMTtime = date.getTimezoneOffset();
+
+    console.log(GMTtime)
+    var UTC = GMTtime + ss;
+
+    var shiqu = new Date(GMTtime);
+
+
+    //alert(shiqu)
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<h1>查询</h1>
+<label>输入编号</label>
+<input type="text" id="keywrod" />
+<button id="search">查询</button>
+<p id="searchRes"></p>
+
+<h1>新建</h1>
+<label>输入新建信息</label><br>
+<input type="text" id="staffName" placeholder="请输入name"><br>
+<input type="text" id="number" placeholder="请输入number"><br>
+<select id="sex">
+    <option value="男">男</option>
+    <option value="女">女</option>
+</select><br>
+<input type="text" id="job" placeholder="请输入job"><br>
+<button id="create">新建</button>
+<p id="createRes"></p>
+<script>
+
+    search.onclick=function () {
+        var val = keywrod.value;
+        var xhr = new XMLHttpRequest();
+        searchRes.innerHTML = "";
+        xhr.open("get","server.php?number="+val);
+        xhr.send();
+        xhr.onreadystatechange=function () {
+            var status = this.status; // 存http状态码
+            if(this.readyState===4){        //ajax状态码
+                if(status>=200&&status<300){
+                    searchRes.innerHTML = this.responseText;
+                }
+            }
+        }
+
+    }
+
+    create.onclick=function () {
+        var data = "name="+ staffName.value + "&number=" + number.value + "&sex=" + sex.value + "&job=" + job.value;
+
+        var xhr = new XMLHttpRequest();
+        //searchRes.innerHTML = "";
+        xhr.open("post","server.php");
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xhr.send(data);
+        xhr.onreadystatechange=function () {
+            var status = this.status; // 存http状态码
+            if(this.readyState===4){        //ajax状态码
+                if(status>=200&&status<300){
+                    createRes.innerHTML = this.responseText;
+                }
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

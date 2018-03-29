@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html onselectstart="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #left{
+            float: left;
+            width:20%;
+
+        }
+        #left input{
+            display: block;
+            width:150px;
+            height:30px;
+            margin:2px auto;
+        }
+        #btn{
+            background: skyblue;
+        }
+        li{
+            height:30px;
+            margin:3px auto;
+            background: pink;
+            text-align: center;
+            line-height:30px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<div id="left">
+    <input type="text" id="page" placeholder="1-52">
+    <input type="button" id="btn" value="来啊，刺激啊">
+    <ul id="ul">
+        <!--<li fyid="/xe/7007659.shtml">内涵漫画：情人节礼物</li> -->
+    </ul>
+</div>
+
+
+<div id="right">
+    <img src="" id="img">
+</div>
+<script>
+    
+    btn.onclick=function () {
+        var url = "https://route.showapi.com/978-2?page="+page.value+"&showapi_appid=45471&showapi_sign=5321ec7d5ab54d4e920293abcaeae00f";
+        ul.innerHTML = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url);
+        xhr.send();
+        xhr.onreadystatechange=function () {
+            var status = this.status;
+            if(this.readyState===4){
+                if(status>=200 && status <300){
+                    var data = JSON.parse(this.responseText)
+                    var arr = data.showapi_res_body.pagebean.contentlist;
+                    auto(arr);
+                }
+            }
+        }
+    }
+    
+    
+    function auto(arr) {
+        for(var i=0;i<arr.length;i++){
+            ul.innerHTML += '<li fyid="'+ arr[i].id +'">'+ arr[i].title+ '</li>'
+        }
+    }
+    
+    
+    //事件委托来代理li执行点击事件，拿到对应的fyid的值
+    ul.onclick=function (e) {
+        var This = e.target; //事件源
+        var url = "https://route.showapi.com/978-1?id="+ This.getAttribute("fyid") +"&showapi_appid=45471&showapi_sign=5321ec7d5ab54d4e920293abcaeae00f"
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url);
+        xhr.send();
+        xhr.onreadystatechange=function () {
+            if(this.readyState===4){
+                if(this.status>=200&&this.status<300){
+                    var data = JSON.parse(this.responseText)
+                    img.src = data.showapi_res_body.img;
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*l1.onclick=function () {
+        var url = "https://route.showapi.com/978-1?id=/xe/7007659.shtml&showapi_appid=45471&showapi_sign=5321ec7d5ab54d4e920293abcaeae00f";
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url);
+        xhr.send();
+        xhr.onreadystatechange=function () {
+            if(this.readyState===4){
+                if(this.status>=200&&this.status<300){
+                    var data = JSON.parse(this.responseText)
+                    img.src = data.showapi_res_body.img;
+                }
+            }
+        }
+    }*/
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body style="width: 2000px;height: 2000px;">
+<div id="box">
+
+</div>
+<script>
+    /*
+    *       滚动高度
+    *           scrollTop
+    *           scrollLeft
+    *
+    *               有兼容性问题
+    *                   支持谷歌，IE和firefox  会存在差异
+    *       document.body.scrollTop
+    *       document.body.scrollLeft
+    *           支持谷歌
+    *
+    *       document.documentElement.scrollTop
+    *       document.documentElement.scrollLeft
+    *           支持火狐和IE
+    *
+    *
+    * */
+
+    window.onscroll = function () {
+        console.log(document.body.scrollTop || document.documentElement.scrollTop)
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            position: absolute;
+            top:0;
+            left:0;
+            width:500px;
+            height:100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+
+    window.requestAnimationFrame = window.requestAnimationFrame||function (fn) {return setTimeout(fn,1000/60)};
+    window.cancelAnimationFrame = window.cancelAnimationFrame ||clearTimeout;
+
+    function getStyle(obj,attr) {
+        return obj.currentStyle? obj.currentStyle[attr]:window.getComputedStyle(obj)[attr];
+    }
+
+
+
+
+
+    var box = document.getElementById('box');
+
+    //move(对象，属性，目标值，递增变量)
+
+    move(box,"width " , 100,5);
+
+    function move(obj,attr,target,speed) {
+
+        var start = parseFloat(getStyle(obj,attr));//存初始值
+        //先判断目标值和初始值谁大
+        var goudan = start > target;
+
+        if( goudan ){
+            speed = -speed;
+        }
+
+
+        fn();
+        function fn() {
+            //把初始值每次叠加变化量
+            start += speed;
+
+            //判断当前的start有没有超过目标值
+            (goudan? start <= target:start>= target)?start = target:requestAnimationFrame(fn);
+            //把改变了的start复制给对象obj的属性
+            obj.style[attr] = start + "px";
+        };
+    }
+
+
+    /*
+    *
+    *    if(goudan? start <= target:start>= target){
+                //超过了 强制等于  目标值
+                start = target;
+            }else{
+                //如果没有超过  那次继续都用自己 再继续执行
+                requestAnimationFrame(fn)
+            }
+    * */
+
+
+</script>
+</body>
+</html>

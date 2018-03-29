@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    
+    /*
+    *   键值对
+    *       key :  value ,
+    *       如果需要跟后台进行数据交互时，属性名和值都必须带上双引号
+    *       当属性名为数字的时候，不能使用.操作，而必须使用【】，
+    *       json 没有长度 length属性
+    * */
+    
+    var json = {
+        "name" : "风屿",
+        'sex' : "男",
+        sayHi : function (){
+            console.log(this)
+        }
+
+    }
+
+    /*json.sayHi()
+
+    window.name()
+    function name() {
+        console.log(this)
+    }*/
+
+
+    //console.log(json['Cjson']['aJson']['name'])
+
+    //console.log(json.Cjson.aJson.name)
+
+
+
+    //json.name = '清水'    //修改值
+
+
+    //json.aaa  = "bbb";    //新增属性
+
+
+    //json.name = null;
+    //json.name = ''
+
+    //delete json.name;     //删除属性
+    //delete json.sex;
+    //json = {}
+    //console.log(json)
+
+
+
+   // alert(json.length)
+
+    //alert(json[0])
+        //json.sayHi()
+    //alert(json.sex )
+   // alert(typeof json)
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width:100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+
+
+    tMove(box,"width",500,2000)
+
+    function tMove(obj,attr,target,time) {
+        window.requestAnimationFrame = window.requestAnimationFrame||function(fn){return setTimeout(fn,1000/60)};
+        window.cancelAnimationFrame = window.cancelAnimationFrame||clearTimeout;
+        var getStyle = obj.currentStyle||getComputedStyle(obj);
+
+
+        //存储obj的初始值
+        var start = parseFloat(getStyle[attr]);
+        //运行的路程
+        var S = target-start;
+        //出发时间
+        var sTime = new Date();
+
+        fn();
+
+        function fn() {
+            //现在的时间
+            var nowtime = new Date();
+            //现在的时间来减去开始的时间 就是已经使用的时间
+            var t = nowtime-sTime;
+            //已用时间和总时间的比例（比例值）
+            var bili = t/time;
+
+            if(bili>=1){
+                bili = 1;
+            }else{
+                requestAnimationFrame(fn)
+            }
+            //总路程*比例值 = 已经走过的路程
+            var result = S*bili + start ;
+
+            obj.style[attr] = result + "px";
+
+
+        }
+
+
+
+
+    }
+
+
+</script>
+</body>
+</html>

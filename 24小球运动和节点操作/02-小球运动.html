@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #ball{
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius:50%;
+        }
+    </style>
+</head>
+<body>
+<div id="ball"></div>
+<script>
+    /*
+    *   offsetTop
+    *   offsetLeft
+    *       只读属性，只能通过它去获取对象的top和left，不能通过它来修改对象的left和top
+    *
+    * */
+    var oBall = document.getElementById("ball"),
+        leftVal = 10,    //初始left方向的速度
+        topVal = 2, //初始的top方法的速度
+        maxTop = document.documentElement.clientHeight - oBall.clientHeight,//获取top的最大值
+        maxLeft = document.documentElement.clientWidth - oBall.clientWidth;//获取left的最大值
+
+    window.onresize = function () {
+        maxTop = document.documentElement.clientHeight - oBall.clientHeight;//获取top的最大值
+        maxLeft = document.documentElement.clientWidth - oBall.clientWidth;//
+    };
+
+        auto();
+        function auto() {
+            var startTop=oBall.offsetTop,   //获取初始的top值
+                startLeft =oBall.offsetLeft,    //获取初始的left值
+                Left = startLeft + leftVal,     //每次执行时的left改变值
+                Top = startTop + topVal;     //每次执行时的top改变值
+
+            //  101      100
+            if(Left >= maxLeft || Left <= 0){
+                leftVal = -leftVal;
+                Left = Math.min(Left,maxLeft);//限制Left的最大值
+                Left = Math.max(Left,0);//限制最小值
+            }
+            if(Top >= maxTop || Top <= 0){
+                topVal = -topVal;
+                Top = Math.min(Top,maxTop);//限制Left的最大值
+                Top = Math.max(Top,0);//限制最小值
+            }
+
+
+            /*if(Left >= maxLeft){
+                Left = maxLeft;
+                leftVal = -leftVal;//到最远距离，速度取反
+
+            }
+            if(Left <= 0){
+                Left = 0;
+                leftVal = -leftVal;//到最远距离，速度取反
+            }
+            if(Top >= maxTop){
+                Top = maxTop;
+                topVal = -topVal;//到最远距离，速度取反
+
+            }
+            if(Top <= 0){
+                Top = 0;
+                topVal = -topVal;//到最远距离，速度取反
+            }*/
+
+
+
+
+            oBall.style.top = Top + "px";
+            oBall.style.left = Left + "px";
+            requestAnimationFrame(auto)
+        }
+
+
+
+
+
+</script>
+</body>
+</html>

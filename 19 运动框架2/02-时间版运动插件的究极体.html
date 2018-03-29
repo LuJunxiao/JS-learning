@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+    //tMove(对象，json ，时间，回调函数（可以不写）)
+    tMove(box,{
+        width:150,
+        height:200,
+        opacity : 0.2
+    },2000,function () {
+        box.style.backgroundColor = "blue"
+    })
+
+    function tMove(obj,json,time,callback) {
+        window.requestAnimationFrame = window.requestAnimationFrame||function(fn){return setTimeout(fn,1000/60)};
+        window.cancelAnimationFrame = window.cancelAnimationFrame||clearTimeout;
+        var getStyle = obj.currentStyle||getComputedStyle(obj);
+        var start = {},S = {};
+        for (var key in json) {
+            start[key] = parseFloat(getStyle[key]);
+            S[key] = json[key] - start[key];
+            if (!S[key]) {
+                delete start[key];
+                delete json[key];
+            }
+        }
+        var startTime = new Date();
+        (function fn() {
+            var prop = (new Date() -startTime)/time;
+            prop>=1?prop = 1:requestAnimationFrame(fn);
+            for (var key in start){
+                if(key==="opacity"){
+                    var value = S[key]*prop + start[key];
+                    obj.style[key] = value;
+                    obj.style.filter = "alpha(opacity="+ value*100 +")"
+                }else{
+                    obj.style[key] = S[key]*prop + start[key] + "px";
+                }
+            }
+            if(prop===1){callback && callback()}
+        })();
+    }
+
+    /*function tMove(obj,json,time,callback) {
+        window.requestAnimationFrame = window.requestAnimationFrame||function(fn){return setTimeout(fn,1000/60)};
+        window.cancelAnimationFrame = window.cancelAnimationFrame||clearTimeout;
+        var getStyle = obj.currentStyle||getComputedStyle(obj);
+
+        //存初始值 /  路程
+        var start = {},S = {};
+        //遍历json里的属性，把属性都应的初始值和  总路程  存起来
+        for (var key in json){
+            start[key] = parseFloat(getStyle[key]);
+            S[key] = json[key]-start[key];
+            if(!S[key]){
+                delete start[key];
+                delete json[key];
+            }
+
+        }
+        //console.log(start)
+        //console.log(S)
+        //初始时间
+        var startTime = new Date();
+        fn();
+        function fn() {
+            //时间比例
+            var prop = (new Date() -startTime)/time;
+            if(prop>=1){
+                prop = 1;
+            }else{
+                requestAnimationFrame(fn)
+            }
+
+            //把之前存在start和S里的值遍历取出来
+            for (var key in start){
+                if(key==="opacity"){
+                    var value = S[key]*prop + start[key];
+                    obj.style[key] = value;
+                    obj.style.filter = "alpha(opacity="+ value*100 +")"
+
+                }else{
+                    obj.style[key] = S[key]*prop + start[key] + "px";
+                }
+            }
+            //判断动画有没有执行完，如果执行完了  就来检查回调函数存在么？如果存在，就执行
+            if(prop===1){callback && callback()}
+        }
+
+    }*/
+
+
+
+
+
+
+    /*tMove(box,"width",500,2000)
+
+    function tMove(obj,attr,target,time) {
+        window.requestAnimationFrame = window.requestAnimationFrame||function(fn){return setTimeout(fn,1000/60)};
+        window.cancelAnimationFrame = window.cancelAnimationFrame||clearTimeout;
+        var getStyle = obj.currentStyle||getComputedStyle(obj);
+
+
+        //存储obj的初始值
+        var start = parseFloat(getStyle[attr]);
+        //运行的路程
+        var S = target-start;
+        //出发时间
+        var sTime = new Date();
+
+        fn();
+
+        function fn() {
+            //现在的时间
+            var nowtime = new Date();
+            //现在的时间来减去开始的时间 就是已经使用的时间
+            var t = nowtime-sTime;
+            //已用时间和总时间的比例（比例值）
+            var bili = t/time;
+
+            if(bili>=1){
+                bili = 1;
+            }else{
+                requestAnimationFrame(fn)
+            }
+            //总路程*比例值 = 已经走过的路程
+            var result = S*bili + start ;
+
+            obj.style[attr] = result + "px";
+
+
+        }
+
+
+
+
+    }*/
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

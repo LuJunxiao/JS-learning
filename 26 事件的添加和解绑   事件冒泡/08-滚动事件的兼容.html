@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body style="height:2000px;">
+<div id="box"></div>
+<script>
+
+    mousewheel(document,function (e,d) {
+        if(d>0){
+            box.innerHTML +="拉近"+d
+        }else{
+
+            box.innerHTML +="推开"+d
+        }
+        return false;
+    });
+
+    function mousewheel(obj,fn) {
+        function eFn(e) {
+            e = e || window.event;
+
+            /*var d = -e.wheelDelta/120||e.detail/3;
+
+            fn.call(this,e,d)*/
+            if(fn.call(this,e,-e.wheelDelta/120||e.detail/3)===false)!-[1,]?e.returnValue=false:e.preventDefault();
+
+
+            //alert(fn.call(this,e,-e.wheelDelta/120||e.detail/3)===false)
+
+        }
+
+        var eName = document.onmousewheel===null?"mousewheel":"DOMMouseScroll";
+        document.addEventListener?obj.addEventListener(eName,eFn):obj.attachEvent("on"+eName,eFn)
+
+    }
+    
+    
+    function fn1() {
+        console.log('1')
+    }
+
+
+    
+    
+
+    //添加事件
+    function addEvent(obj,eName,eFn) {
+        if(obj.attachEvent){ //判断支不支持attacgevent方法，如果支持就是ie678
+            obj.attachEvent("on"+eName,eFn) //兼容IE678
+        }else{
+            obj.addEventListener(eName,eFn)//兼容标准浏览器
+        }
+    }
+</script>
+</body>
+</html>

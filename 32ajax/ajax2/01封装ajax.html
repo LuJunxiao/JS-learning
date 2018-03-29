@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<script>
+
+    ajax({
+        type : "get",
+        url : "1.php",
+        aysn : true,
+        data :{
+            user : "风屿",
+            pwd : "123456"
+        },
+        success :function (msg) {
+            console.log(msg)
+        },
+        error : function (msg) {
+            alert("出现错误："+msg)
+        }
+    })
+
+    /*
+    *   ajax 需要的参数
+    *       *   type ： string类型，代表请求的方式，默认get
+    *       *   url ： string类型，必填，代表请求的地址（接口），
+    *       *   aysn ： bool值，可缺省，默认true（异步），
+    *       *   data ：json  可缺省，代表请求的数据，
+    *       *   success ： function  可缺省，代表成功以后执行的回调函数
+    *       *   error  ：  function  可缺省，代表失败时候执行的回调函数
+    *
+    *
+    * */
+    
+    function ajax(json) {
+        var type = json.type||"GET",
+            url = json.url,
+            aysn = json.aysn !== false,
+            data = json.data,
+            success = json.success,
+            error = json.error;
+
+        //处理data数据的格式
+        /*if(data){
+            data = (function () {
+                var str = "";
+                for (var key in data){
+                    str += key + "=" + data[key] + "&";
+                }
+                return str;
+            })();
+        }*/
+        data = data && (function () {
+            var str = "";
+            for (var key in data){
+                str += key + "=" + data[key] + "&";
+            }
+            return str;
+        })();
+
+        if(/get/i.test(type)){
+            url += "?"+ (data||"") + "_=" + new Date().getTime(); //解决低版本IE的缓存问题
+            data = undefined;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open(type, url , aysn);
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xhr.send(data);
+        xhr.onreadystatechange=function () {
+            if(this.readyState===4){
+                var status = this.status;  //http状态码
+                if(status>=200 && status<300){
+                    success&&success(this.responseText)
+                }else{
+                    error&&error(status)
+                }
+            }
+        }
+
+    }
+    
+    
+    
+</script>
+</body>
+</html>

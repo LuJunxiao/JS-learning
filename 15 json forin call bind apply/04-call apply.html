@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        div{
+            width: 50px;
+            height: 50px;
+            background: red;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<script>
+
+    /*
+    *       这两个方法都是即时执行(会主动执行函数)
+    *
+    *
+    *       call()
+    *           是函数下面的方法
+    *               用来改变this的指向问题
+    *           第一个参数是this的指向目标，接受参数个数没有限制
+    *           只针对本次生效
+    *       apply()
+    *           是函数下面的方法
+    *               用来改变this的指向问题
+    *           第一个参数是this的指向目标，接受参数的个数最多为2个，而且第二个必须是数组
+    *           只针对本次生效
+    *
+    * */
+    var box = document.getElementsByClassName('box');
+
+   for(var i=0;i<box.length;i++){
+        box[i].onclick = auto.call(box[0],30,50);
+    }
+
+
+//    auto.call(box[0],30,50)
+    //auto.apply(box[1],[20,30])
+
+
+
+    function auto(x,y) {
+        //console.log(This)
+        console.log(x+y)
+        console.log(this)
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

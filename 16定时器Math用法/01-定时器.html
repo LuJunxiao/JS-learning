@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    /*
+    *       setTimeout()
+    *          只执行一次
+    *       clearTimeout()
+    *
+    *       setInterval()
+    *       clearInterval()
+    *           可以循环执行
+    *       
+    *           共同点
+    *              第一个参数：匿名函数/函数名(还可以是字符串，这个字符串会被当做js代码来解析, 非常不推荐这样写)
+    *              第二个参数：数字（单位是毫秒，代表间隔时间  1000ms = 1s）
+    *
+    *       定时器有最低的刷新频率（最低一般13）
+    *
+    *
+    *
+    *
+    *       alert()
+    *           不把本次弹窗取消，后面的代码不会执行
+    *
+    *
+    *
+    *       eval()
+    *           可以接受字符串参数，并且会把这个字符串当前js代码来执行。
+    * */
+
+    /*setTimeout(function () {
+        alert(1)
+    },1000)*/
+
+    /*setInterval(function () {
+        alert(2)
+    },1000)*/
+
+    //setTimeout(auto,2000)
+    /*setInterval(function () {
+        alert(1)
+    },2000)*/
+
+    //eval("alert(1)")
+
+
+//    function auto(x,y) {
+//        alert(x+y)
+//    }
+
+/*    var a = 0;
+
+    var timer = setInterval(function () {
+        a++;
+        if(a == 10){
+            clearInterval(timer)
+        }
+        box.innerHTML += a+" "  ;
+    },100)*/
+
+    var x = setTimeout(function () {
+        alert(1)
+    },13)
+
+    clearTimeout(x)
+    //alert(2)
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+    <p>我是p</p>
+    <span>我是span</span>
+</div>
+<script>
+
+    /*DOM   //(document object model)
+
+
+    javascript  // ECMAScript  DOM  BOM*/
+
+
+    /*
+    *
+    *       DOM     document object model  文档对象模型
+    *
+    *       js ---》   DOM   -----》 html
+    *       DOM提供了很多的方法和属性，便于js来操作这个HTML文档
+    *
+    *       DOM树
+    *
+    *
+    *
+    *
+    *
+    * */
+
+
+
+    /*
+    *       childNodes
+    *           在主流浏览器里，会返回文本节点，
+    *           在ie8 及以下浏览器 里  会忽略掉，  只会返回 元素节点（标签节点）
+    *
+    *       nodeType
+    *           会返回节点类型  元素节点的类型（1）  文本节点类型（3）
+    *
+    *
+    *       children  ----  推荐使用!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    *           会获取对象下的所有  元素  儿子节点
+    *           并且没有兼容性问题
+    *
+    *       firstChild
+    *           返回第一个子节点    在主流浏览器里 可能会返回文本或者一些其他的节点
+    *       lastChild
+    *           返回的是最后一个子节点，在主流浏览器里可能会返回文本或其他节点，在IE678只会返回元素节点
+    *
+    *       firstElementChild
+    *           返回第一个子元素节点，不兼容IE678；
+    *       lastElementChild
+    *           返回最后一个子元素节点，不兼容IE678；
+    *
+    *       nextSibling
+    *           在主流浏览器里可能会返回除元素节点以外的其他节点；
+    *           在IE678里，只会返回元素节点，如果没有，就返回null
+    *       previousSibling
+    *           在主流浏览器里可能会返回除元素节点以外的其他节点
+    *           在IE678里，只会返回元素节点，如果没有，就返回null
+    *       nextElementSibling
+    *           在主流浏览器里返回下一个元素节点，如果没有就返回null
+    *           不兼容IE678；
+    *
+    *       previousElementSibling
+    *           在主流浏览器里返回上一个元素节点，如果没有就返回null
+    *           不兼容IE678；
+    *
+    *       parentNode;
+    *           找父级节点
+    *
+    *       offsetParent
+    *           找定位父级
+    *           没有兼容性问题；
+    *
+    * */
+    var box = document.getElementById("box");
+
+    //var a = box.childNodes;  //获取box下面的所有儿子节点
+
+    //alert(a.length)
+
+    //var a = box.children;
+
+   // alert(a[2].innerHTML)
+
+    //var a = box.children;
+
+    //alert(a[a.length-1])
+
+   // var a = box.firstElementChild;
+
+    //alert(a)
+
+    //var a = box1.previousSibling;
+
+    //alert(a)
+
+    //var a = box1.nextElementSibling;
+    
+    //alert(a)
+
+     //var a = box1.parentNode;
+     
+     //console.log(a)
+    
+    var a = box2.offsetParent;
+    
+    alert(a)
+    
+
+
+
+
+
+
+
+
+
+
+
+        /*
+
+									  document （在文档里。document是老大）
+										 |
+										html
+										/  \
+									   /	\
+									  /		 \
+									body 	head
+									/		  /|  \
+								   /		 /	|	\
+								  /			/	|	  \
+								/ |\	  mate  title  style ......
+							   /  |	\
+						      /	  |  \
+						     /	  |   \
+							div   p   ul....
+							/		  /
+						   /		 /
+						  a....	  li......
+
+
+
+
+
+
+
+
+
+
+		JavaScript三大核心？
+
+		ECMAScript  是 通过ECMA-262 标准化的脚本程序设计语言 （可以通俗的理解为JavaScript的标准）
+					它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。
+
+		DOM    （Document Object Model）  文档对象模型  （它是一个对象，提供很多的方法和属性供js使用，让js能操作HTML文档）
+
+		BOM     （Browser Object Model） 浏览器对象模型
+			（跟DOM差不多，提供一些方法供js使用，让js能操作浏览器窗口）
+
+			比如：移动窗口位置，改变窗口大小，打开新窗口，关闭窗口........
+
+
+		window是 JavaScript的顶层BOSS，所有的对象都是通过window延伸出来的。
+    * */
+</script>
+</body>
+</html>

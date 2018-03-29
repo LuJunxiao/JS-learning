@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <!--<script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>-->
+</head>
+<body>
+<script>
+
+    /*
+    *   ajax
+    *       异步javascript和XML
+    *       异步加载
+    *       局部刷新
+    *
+    *
+    *    ajax 是向后台发送请求（数据）/获取后台传回来数据的一种方法
+    *       ajax不能跨域
+    *       如果需要跨域（可以在每个域里进行相应设置，）后台，flash，jsonp
+    *
+    *
+    *       步骤：
+    *           1.  创建一个ajax对象    new XMLHttpRequest();
+    *           2.  建立请求
+    *               ①需要设置通过什么方式 (get post)
+    *               ②地址，接口
+    *               ③true 代表异步 false是同步
+    *
+    *           3.  发送
+    *
+    *           4.  监听事件操作
+    *
+    *
+    *       .onreadystatechange
+    *           监听状态码事件
+    *
+    *        xhr.readyState
+    *        状态码  0 1 2 3 4
+    *
+    *        0: 请求还没有建立
+    *        1：请求建立了，还没有进行发送
+    *        2：请求正式发送(xhr.send()执行了)
+    *        3：请求接收，同时又一部分数据可以使用了(数据并没有全部处理好)
+    *        4：请求已经完全受理
+    *
+    *
+    *
+    * */
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('get' , '1.php?name=123&age=18&length=18', true);
+    xhr.send();
+    xhr.onreadystatechange=function () {
+        if(this.readyState===4){
+            console.log(this.responseText)
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

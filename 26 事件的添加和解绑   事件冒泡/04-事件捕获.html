@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box3{
+            width:200px;
+            height: 100px;
+            background: pink;
+        }
+        #box2{
+            padding:20px;
+            background: red;
+        }
+        #box1{
+            padding:20px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">1
+    <div id="box2">2
+        <div>
+            <div id="box3">3</div>
+        </div>
+    </div>
+</div>
+<script>
+
+    /*
+    *   事件捕获
+    *       没有什么卵用，了解一下就ok
+    *       事件在传递的时候会有一个触发的顺序
+    *       只有在标准浏览器下才有这个概念
+    *
+    *
+    *
+    * */
+
+
+    box1.addEventListener("click",fn1)
+    box2.addEventListener("click",fn2)
+    box3.addEventListener("click",fn3)
+
+
+    function fn1() {
+        console.log(1)
+    }
+    function fn2() {
+        console.log(2)
+    }
+    function fn3() {
+        console.log(3)
+    }
+
+</script>
+</body>
+</html>

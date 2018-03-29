@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    /*
+    *       addEventListener()
+    *           这个方法添加的事件，事件函数里的this指向是正确的；
+    *
+    *       事件函数的第一个参数是事件对象，（必须在事件函数没有进行传参的时候）
+    *
+    *       事件函数有传参行为时，事件对象是最后一个 形参来接收。
+    *
+    *
+    * */
+    /*box.attachEvent("onclick",fn)
+
+    function fn() {
+        alert(this)
+    }*/
+
+    /*box.addEventListener("click",fn.bind(box,2,3,4,5,6,7))
+
+    function fn() {
+        alert(arguments.length-1)
+        console.log(arguments[arguments.length-1])
+       // alert(arguments[0]+arguments[1])
+    }*/
+
+    /*box.attachEvent("onclick",function () {
+        fn.call(box)
+    })
+    function fn() {
+        alert(this)
+    }*/
+
+    addEvent(box,"click",function () {
+        alert(3)
+    });
+    addEvent(box,"click",function () {
+        alert(5)
+    });
+    addEvent(box,"click",function () {
+        alert(6)
+    });
+
+    removeEvent(box,"click",function () {
+        alert(6)
+    });
+
+
+
+
+
+
+    /*//添加事件
+    function addEvent(obj,eName,eFn) {
+        if(!-[1,]){ //判断支不支持attacgevent方法，如果支持就是ie678
+            obj.attachEvent("on"+eName,function () {
+                eFn.call(obj)
+            }) //兼容IE678
+        }else{
+            obj.addEventListener(eName,eFn)//兼容标准浏览器
+        }
+    }*/
+
+
+
+
+</script>
+</body>
+</html>

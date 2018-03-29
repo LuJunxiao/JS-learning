@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            width:100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+
+    //box.style.width = "200px"
+
+    //alert(box.style.width)
+
+    //alert(box.offsetWidth)       //能获取自身width
+
+    /*
+    *       getComputedStyle()
+    *
+    *           getComputedStyle（对象）.属性
+    *
+    *           //接受一个参数，是一个对象
+    *           兼容主流浏览器
+    *           不兼容IE8以及以下！！！！！！！！！
+    *
+    *       currentStyle
+    *           只有IE能使用
+    *           对象.currentStyle.属性
+    *
+    * */
+
+    //获取颜色的值和路径 都不能用来判断。！！！！！！！
+    //alert( getComputedStyle(box).backgroundColor === 'pink' )
+
+    //var a = getComputedStyle(box);
+
+    //alert(a.width)
+
+     //  false  0  ''  NaN  undefined null
+
+
+    //alert(box.currentStyle.width)
+
+   /* var b = getStyle(box,"width");
+
+
+    //获取对象属性的方法 封装
+    function getStyle(obj,attr) {
+        //return obj.currentStyle[attr]||getComputedStyle(obj)[attr];
+
+        return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+
+        //判断浏览器类型
+        /!*if(obj.currentStyle){
+            //IE浏览器
+            return obj.currentStyle[attr];
+        }else{
+            //非IE浏览器
+            return getComputedStyle(obj)[attr];
+        }*!/
+    }*/
+
+
+
+
+    /*var b = getStyle(box).width;
+    function getStyle(obj) {
+        return obj.currentStyle || getComputedStyle(obj);
+    }
+
+    alert(b)*/
+    
+    
+    
+    var a = getStyle(box,"width");
+    
+    
+    function getStyle(obj,attr) {
+        //return window.getComputedStyle(obj) || obj.currentStyle;
+
+        return window.getComputedStyle?getComputedStyle(obj)[attr]:obj.currentStyle[attr];
+        /*if(window.getComputedStyle){ //为什么需要写上window，是因为直接写判断有没有这个变量
+            //返回的一定不是IE
+            return getComputedStyle(obj);
+        }else{
+            // 一定是IE浏览器
+            return obj.currentStyle;
+        }*/
+    }
+    alert(a)
+
+    // alert(getComputedStyle)
+</script>
+</body>
+</html>

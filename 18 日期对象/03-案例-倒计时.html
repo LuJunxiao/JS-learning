@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #txt{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        距离<span id="txt">过年</span>还有<span id="time"></span>
+    </div>
+    <script>
+        setInterval(timer(),1000);
+
+        function timer() {
+            var nowT = new Date();
+
+            var newYear = new Date(2018,1,16);
+            var goudan = newYear - nowT,
+                dd = Math.floor(goudan/1000/60/60/24),
+                hh = Math.floor(goudan/1000/60/60) % 24,
+                mm = Math.floor(goudan/1000/60) % 60,
+                ss = Math.floor(goudan/1000) % 60;
+
+            time.innerHTML = dd +'天' + hh+ '小时' + mm+'分'+ss+"秒";
+
+            return timer;
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>

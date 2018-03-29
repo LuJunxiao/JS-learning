@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            width: 100px;
+            padding:5px;
+            height: 100px;
+            border:10px solid #000;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+    q<br>
+</div>
+
+<script>
+    /*
+    *   clientWidth
+    *   clientHeight
+    *       读取元素的style的宽高+ padding的大小
+    *       没有兼容性问题
+    *       与内容超出没有关系
+    *
+    *   offsetWidth
+    *   offsetHeight
+    *       读取元素的style的宽高 + padding的大小 + border的宽高
+    *       与内容是否超出没有关系
+    *
+    *   scrollWidth
+    *   scrollHeight
+    *       读取元素的content宽高 + padding；
+    *       当内容超出的时候；不管没有没隐藏，都是一样的。
+    *       如果没有内容没有超出，它跟clientWidth或者clientHeight一样
+    *
+    * */
+
+    //getComputedStyle(box).width;
+    //alert(box.clientWidth)
+    //alert(box.offsetWidth)
+    alert(box.scrollWidth)
+
+    
+    
+
+</script>
+
+
+</body>
+</html>

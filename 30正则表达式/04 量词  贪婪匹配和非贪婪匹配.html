@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<body>
+<script>
+
+    /*
+    *       量词
+    *           {}
+    *
+    *       {0,5}   最少0次  最多5次  [0,5]
+    *       {7,10}  最少7次  最多10
+    *
+    *       有几种特殊写法
+    *           {0,1}    ?  最少0次 最多1次
+    *           {1,}     +  最少1次 最多无限
+    *           {0,}     *  不限制，可以任意次
+    *
+    *           {5,}
+    *
+    * */
+
+    /*var str = "1111111222333";
+
+    var reg = /1{5,}/;
+
+    alert(reg.test(str))*/
+
+    /*
+    *       贪婪匹配和非贪婪匹配
+    *       贪婪匹配会先以最多的次数来进行匹配
+    *           例如：
+    *               "11111222333".replace(/1{4,6}?/,"A")
+                        输出："A222333"
+
+            非贪婪匹配
+                写法 量词？   {}？
+                以量词里最少次数开始匹配
+
+    * */
+
+
+
+
+
+
+</script>
+</body>
+</html>

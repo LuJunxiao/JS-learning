@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<div id="box">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</div>
+<script>
+    /*
+    *       e.preventDefault()
+    *           清除默认事件
+    *               不兼容IE678
+    *
+    *       清除选中事件时
+    *           标准浏览器可以直接禁止鼠标按下事件的默认事件即可，但是IE678 不能
+    *           只能使用 obj.onselectstart =function（）{
+    *               return false；
+    *           }
+    *       return false
+    *           也可以清除默认事件
+    *
+    *       e.returnValue=false; 只支持IE678
+    *
+    * */
+    /*document.onmousedown=function (e) {
+        e = e||window.event;
+
+        //e.returnValue = false;
+        return false;
+    }*/
+
+    document.onselectstart=function (e) {
+        e = e||window.event;
+        e.returnValue = false;
+    }
+
+
+
+</script>
+</body>
+</html>

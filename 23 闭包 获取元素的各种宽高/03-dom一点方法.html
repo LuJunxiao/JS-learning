@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<div id="box">
+
+    <span id="span"></span>
+    <p id="p1"></p>
+    <a href=""></a>
+    <b></b>
+</div>
+<script>
+    /*
+    *
+    *       cloneNode(布尔值)
+    *          true    深度的复制
+    *          false    浅复制
+    *
+    *          复制时，会把行内的事件和addEventListener；
+    *
+    *       nodeName
+    *           返回构造器（DIV P SPAN）
+    *
+    *
+    *
+    * */
+    //console.log(box.children[0])
+    var box = document.getElementById('box');
+
+
+   /* box.children[0].onclick = function () {
+        alert(this.innerHTML)
+    }
+
+    var a = box.children[0].cloneNode(true);
+
+        a.innerHTML = "p2";
+        a.className = "p2";
+
+
+    box.appendChild(a)*/
+
+    /*var span = document.getElementById("span");
+
+
+    p1.appendChild(span);*/
+
+    alert(box.children[4].nodeName)
+</script>
+</body>
+</html>

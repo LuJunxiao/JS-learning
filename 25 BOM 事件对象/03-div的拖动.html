@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background:pink;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+    var box = document.getElementById("box");
+
+
+    box.onmousedown =function (e) {
+        e = e || window.event;
+        var xDown = e.clientX, //获取按下时  鼠标的X坐标
+            yDown = e.clientY, //获取按下时， 鼠标的y坐标
+            leftDown = this.offsetLeft, //获取盒子的初始left值
+            topDown = this.offsetTop;   //获取盒子的初始top值
+
+        document.onmousemove = function (e) {
+            e = e||window.event;
+            var xMove = e.clientX, //获取鼠标移动时的X坐标
+                yMove = e.clientY, //获取鼠标移动是的Y坐标
+                x_ = xMove - xDown, //计算鼠标的移动距离
+                y_ = yMove - yDown; //计算鼠标移动的距离
+
+                //把鼠标的移动距离赋值给 box  ， 就实现了  移动的过程
+            box.style.left = leftDown + x_ + "px";
+            box.style.top = topDown + y_ + "px";
+        }
+
+    }
+    document.onmouseup=function () {
+        this.onmousemove = null;
+        //this.onmouseup = null;
+        console.log("1")
+    }
+
+
+
+
+    /*box.onmousedown = function () {
+        console.log("我被按下了")
+        box.onmousemove = function () {
+            console.log("移动中！")
+        }
+
+
+    }
+
+
+
+    box.onmouseup=function () {
+        box.onmousemove = null;
+        console.log("抬起了")
+    }*/
+
+
+
+
+</script>
+</body>
+</html>

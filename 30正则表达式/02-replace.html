@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+    <script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>
+</head>
+<script>
+    /*
+    *       replace（）    除了可以是字符串，还可以是function
+    *
+    *          正则没有子集的时候：
+        *           第二个参数是函数的函数的时候
+        *               函数的第一个形参
+        *                   正则匹配到的内容
+        *               第二个形参：
+        *                   是每次匹配到的结果对应的索引
+        *               第三个形参：
+        *                   是正则匹配的目标str本身
+    *
+    *
+    *
+    *           如果正则里有子集的时候：
+    *               函数的第一个参数：
+    *                   是正则每次匹配到的内容
+    *               第二个参数
+    *                   对应第一个子集
+    *               第三个
+    *                   对应第二个子集
+    *               以此类推
+    *
+    *               最后一个参数
+    *                   是每次匹配的内容在目标字符串里的下标
+    *
+    *
+    *
+    *
+    *
+    *
+    * */
+    var str = "A1B2C3";
+
+    var reg = /\d/g;
+
+    var a = str.replace(reg,function (a) {
+        return a+"X"
+    });
+
+
+    console.log(a)
+
+</script>
+<body>
+</body>
+</html>

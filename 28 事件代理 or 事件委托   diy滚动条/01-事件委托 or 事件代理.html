@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="FengYu">
+    <title>Tz-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        li{
+            width:150px;
+            height:30px;
+            background: red;
+            margin:5px;
+        }
+    </style>
+    <!--<script src="https://git.oschina.net/cx-fy/personal/raw/master/conmenu.js"></script>-->
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>0001</li>
+        <li>0002</li>
+        <li>0003</li>
+        <li>0004</li>
+        <li>0005</li>
+    </ul>
+</div>
+
+<script>
+
+    /*
+    *       事件委托 / 事件代理
+    *
+    *           e.target
+    *               事件源
+    *
+    *
+    * */
+
+    /*var aLi=document.getElementsByTagName("li");
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick=function () {
+            alert(this.innerHTML)
+        }
+    }*/
+
+    
+    box.onclick=function (e){
+        e = e || window.event;
+        click.call(e.target)
+    };
+
+    function click() {
+        if(this.nodeName==="LI"){
+            alert(this.innerHTML)
+        }
+    }
+
+
+
+
+
+
+
+</script>
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    *
+    *       e.type
+    *           返回触发当前的事件函数的事件名称。
+    *           这个名称不带on；
+    *
+    * */
+
+
+    //box.onmouseover / box.onmouseenter
+    /*
+    *
+    *   mouseenter
+    *       不支持冒泡
+    *   mouseover
+    *       支持冒泡
+    *
+    * */
+
+    /*box1.onmouseover=function () {
+        console.log("box1 enter")
+    };
+
+    box2.onmouseover=function (e) {
+        e.cancelBubble=true;
+        console.log("box2 over")
+    }*/
+
+
+    /*box.onmouseenter=function (e){
+        e = e || window.event;
+        alert(typeof e.type)
+    }*/
+
+    /*box.onclick=function (e){
+        e = e || window.event;
+        alert(e.type)
+    }*/
+    
+    
+</script>
+    
+
+</body>
+</html>
