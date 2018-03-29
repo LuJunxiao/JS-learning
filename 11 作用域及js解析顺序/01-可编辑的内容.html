@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Fengyu">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0; font-family:Microsoft yahei,serif;}
+        li{ list-style:none;}
+        #box ul li{
+            height: 50px;
+            padding-left: 50px;
+            line-height: 50px;
+            font-size: 12px;
+            border-bottom: 1px solid red;
+        }
+        #box ul li span{
+            float: left;
+        }
+        #box ul li input{
+            display: none;
+            float: left;
+            margin-top: 14px;
+            color: #999;
+        }
+        #box ul li p{
+            float: left;
+            width: 50px;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            margin-top: 12px;
+            margin-left: 10px;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>
+            <span>默认内容</span>
+            <input type="text" value="默认内容">
+            <p>修改</p>
+        </li>
+        <li>
+            <span>默认内容</span>
+            <input type="text" value="默认内容">
+            <p>修改</p>
+        </li>
+        <li>
+            <span>默认内容</span>
+            <input type="text" value="默认内容">
+            <p>修改</p>
+        </li>
+        <li>
+            <span>默认内容</span>
+            <input type="text" value="默认内容">
+            <p>修改</p>
+        </li>
+    </ul>
+</div>
+<script>
+    (function () {
+        var oBox = document.getElementById('box'),
+            aSpan = oBox.getElementsByTagName('span'),
+            aInput = oBox.getElementsByTagName('input'),
+            aP = oBox.getElementsByTagName('p'),
+            length = aP.length;
+
+        for(var i=0;i<length;i++){
+            aP[i].i = i;//存索引
+            aP[i].onclick = function () {
+                var a = this.i;
+                if(this.innerHTML === '修改'){
+                    aInput[a].value = aSpan[a].innerHTML;
+                    aSpan[a].style.display = 'none';
+                    aInput[a].style.display = 'block';
+                    this.innerHTML = '确认'
+                }else{
+                    aSpan[a].innerHTML = aInput[a].value;
+                    aSpan[a].style.display = 'block';
+                    aInput[a].style.display = 'none';
+                    this.innerHTML = '修改'
+                }
+
+            }
+        }
+    })()
+
+
+
+
+</script>
+</body>
+</html>

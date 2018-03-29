@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+
+    /*
+    *       if和for的大括号并不会产生作用域，
+    *
+    * */
+    alert(a)
+    alert(b)
+    if(true){
+        var a = 1;
+    }else{
+        var b = 0;
+    }
+    alert(a)
+    alert(b)
+
+
+
+    // unde
+    /*
+    *   1.定义
+    *      var a
+    *      var b
+    *   2.执行
+    *       alert(a)
+    *
+    * */
+</script>
+</body>
+</html>

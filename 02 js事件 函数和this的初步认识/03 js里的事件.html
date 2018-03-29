@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+		#box{
+			width:100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://git.oschina.net/cx-fy/personal/raw/master/byElement.js"></script>
+
+</head>
+<body>
+    <div id="box"></div>
+    <input type="" name="">
+    <script type="text/javascript">
+    	/*
+			事件
+				鼠标事件	键盘事件	表单事件	系统事件
+
+			需要重点掌握的
+
+				onclick   单击事件
+				ondblclick 双击事件
+
+				onmouseenter / onmouseover	鼠标移入事件
+				onmouseleave / onmouseout   鼠标移出事件
+    	*/
+    	var box = document.getElementById('box');
+    	
+    	//注册事件
+    	/*box.onclick = function(){
+    		alert('你好，我是onclick')
+    	}*/
+    	/*box.ondblclick = function(){
+    		alert("fengyu")
+    	}*/
+    	/*box.onmouseenter = function(){
+    		alert("fengyu")
+    		box.onmouseout = false;
+    	}
+    	box.onmouseout = function(){
+    		alert('小哥哥2')
+    	}*/
+    </script>
+</body>
+</html>

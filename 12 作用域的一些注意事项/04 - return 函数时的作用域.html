@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    *   函数的作用域在函数定义时就已经决定他的位置，但是没有生效，在函数执行时产生
+    *
+    * */
+    var a = 5;
+    function fn() {
+        var b = 10;
+        return function () {
+            b++;
+            alert(b)
+        }
+    }
+    fn()();
+
+    /*
+    *       1.定义
+    *           var a；
+    *           function fn（）{}；
+    *       2.执行
+    *           a = 5；
+    *           fn();  ----》   1.定义
+    *                               var b；
+    *                           2.执行
+    *                               b = 10;
+    *                                  return function （）{}；
+    *
+    * */
+</script>
+</body>
+</html>

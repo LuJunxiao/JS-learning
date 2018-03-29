@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    *   各种数据类型 弹窗时的表现形式
+    * */
+    //var a = 10;
+    //var a = '10'
+     //var a = true;
+    //var a = function () {alert(1)} //函数块.  函数体
+    //var a = [1,2,true,'fengyu',function () {}]
+    //var a = {name:123,age:18}
+    //var a = undefined;
+    //var a = null
+
+
+
+    /*
+         解析顺序
+            1. 定义
+                找 var
+                找函数定义（找有名函数）
+                //出现重名情况的时候，函数会把var的变量覆盖
+            2. 执行
+                从上到下
+    *
+    *
+    *
+    * */
+
+/*    alert(a)
+
+    var a = 123;
+
+    alert(a)
+
+    function fn() {
+        alert(2)
+    }*/
+
+
+
+
+    //undefined  123
+        /*
+        *   1.定义
+        *       var a；
+        *       function fn() {
+                    alert(2)
+                }
+        *    2.执行
+        *       alert(a)//40
+        *       a = 123；
+        *       alert(a)//44
+        * */
+
+
+
+   /* fn();
+
+    function fn() {
+        alert(1)
+    }*/
+
+
+
+    alert(b)
+
+    function b() {
+
+        alert(2)
+    }
+
+
+    var b = 13;
+
+
+    alert(b)
+
+    /*
+    *       1.定义
+    *            function b() {
+                    alert(2)
+                 }
+                 var b；
+             2.执行
+                alert（b）； 弹出函数块
+                   b=13；
+                  alert(b)    13
+    *
+    * */
+
+
+
+
+    // 函数块   13
+            /*
+            *   1.定义
+            *
+            *       function b() {
+                        alert(2)
+                    }
+                 2.执行
+                     alert(b)//76
+                     b = 13；
+                     alert(b)//85
+            * */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+		#box{
+			width:1000px;
+			margin:50px auto;
+		}
+		#box span{
+			display: inline-block;
+			width:50px;
+			height:30px;
+			background: #000;
+			line-height: 30px;
+			text-align: center;
+			cursor:pointer;
+			margin-right:10px;
+			font-size: 14px;
+			color:#fff;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://git.oschina.net/cx-fy/personal/raw/master/byElement.js"></script>
+
+</head>
+<body>
+    <div id="box">
+    	<span id='add'>+</span>
+    	<span id='ded'>-</span>
+    	<p>2016年5月12日上午9点，央视二套（CCTV-2）“财经资讯”栏目组到访潭州。此次“来自改革创新一线的报道”的主题采访在全国各地收集创新创业一线企业和团队典型，而潭州教育是湖南地区的第一家企业也是重要一站。</p>
+    	<p>潭州教育成立于2007年，于2015年10月正式入驻长沙国家高新技术产业开发区麓谷芯城信息产业园区，是一家典型性的创新创业的“互联网+教育”企业。在市委市政府及长沙高新区的大力支持下，潭州教育得到了飞速的发展，已经成为一家具有一定影响力的跨品类的综合性直播在线教育企业。</p>
+    	<p>2016年5月12日上午9点，央视二套（CCTV-2）“财经资讯”栏目组到访潭州。此次“来自改革创新一线的报道”的主题采访在全国各地收集创新创业一线企业和团队典型，而潭州教育是湖南地区的第一家企业也是重要一站。</p>
+    	<p>潭州教育成立于2007年，于2015年10月正式入驻长沙国家高新技术产业开发区麓谷芯城信息产业园区，是一家典型性的创新创业的“互联网+教育”企业。在市委市政府及长沙高新区的大力支持下，潭州教育得到了飞速的发展，已经成为一家具有一定影响力的跨品类的综合性直播在线教育企业。</p>
+    </div>
+ 	<script type="text/javascript">
+ 		var Add = document.querySelector('#add'),
+ 			Ded = document.querySelector('#ded'),
+ 			oBox = document.getElementById('box'),
+ 			size = 16;
+
+ 			Add.onclick =function(){
+ 				size += 2;
+ 				if (size > 24) {
+ 					alert('不能再大了,再大受不了了')
+ 					size = 24;
+ 				}
+ 				//oBox.style.fontSize = size + 'px';
+ 			}
+ 			Ded.onclick = function(){
+ 				size -= 2;
+ 				if (size<12) {
+ 					alert('不能再小了,再小就不见了')
+ 					size = 10;
+ 				}
+ 				oBox.style.fontSize = size + 'px'
+ 			}
+
+ 			
+  	</script>
+</body>
+</html>

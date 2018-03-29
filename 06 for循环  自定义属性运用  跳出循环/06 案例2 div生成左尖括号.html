@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+		#box{
+			margin:50px auto;
+			border:1px dashed #000;
+		}
+		div.con{
+			width:50px;
+			height:50px;
+			background: pink;
+			line-height: 50px;
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+			color:#fff;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	
+</head>
+<body>
+    <div id="box">
+    	
+    </div>
+ 	<script>
+ 		var box = document.getElementById('box');
+ 		var num = 11;
+ 			box.style.width = num*50 + 'px';
+ 			for (var i = 0; i < num; i++) {
+ 				var M_left = i<num/2?i*50:(num-i-1)*50;
+ 					box.innerHTML += '<div class="con" style="margin-left:'+ M_left +'px;">'+ i + '</div>'
+ 			}
+ 	</script>
+</body>
+</html>

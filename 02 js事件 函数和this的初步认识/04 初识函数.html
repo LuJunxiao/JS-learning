@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+		#box{
+			width:100px;
+			height: 100px;
+			background: pink;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://git.oschina.net/cx-fy/personal/raw/master/byElement.js"></script>
+
+</head>
+<body>
+    <div id="box">初识</div>
+    <script type="text/javascript">
+    	
+    	//var box = document.getElementById('box');
+    	
+    	/*
+			函数/方法
+
+				有名函数/匿名函数
+
+				有名函数可以自执行  也可以 当做事件函数；（事件触发的时候执行）
+
+    	*/
+    	
+
+
+
+    	//函数里的this指向让这个函数执行的对象。
+    	var box = document.getElementById('box');
+
+   		/*box.onclick = function (){
+   			alert(this.innerHTML)
+   		};*/
+
+   		var chushi = '初识';
+   		console.log(window)
+    	/*function fengyu(){
+    		alert(123)
+    	}
+    	
+    	fengyu();*/
+    </script>
+</body>
+</html>

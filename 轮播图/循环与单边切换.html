@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+		#box{
+			width:400px;
+			height: 340px;
+			margin:50px auto;
+		}
+		#box #btn{
+			height: 30px;
+		}
+		#box #btn span{
+			display: inline-block;
+			width: 70px;
+			height: 30px;
+			background: #000;
+			color:#fff;
+			text-align: center;
+			line-height: 30px;
+			font-size: 14px;
+			cursor: pointer;
+
+		}
+		#box #btn span.on{
+			background: #f60;
+			
+		}
+		#img{
+			width:400px;
+			height: 310px;
+			position: relative;
+		}
+		#img ul li{
+			position: absolute;
+			top:0;
+			left: 0;
+			background:pink;
+			height: 310px;
+			width: 400px;
+			text-align: center;
+			line-height: 310px;
+			font-size: 100px;
+			font-weight: bold;
+			display: none;
+		}
+		#img ul li.active{
+			display: block;
+		}
+		#img p{
+			position: absolute;
+			width:100%;
+			background:rgba(0,0,0,.3);
+			text-align: center;
+			color:#fff;
+			font-size: 14px;
+			font-weight: bold;
+		}
+		#img #prve,#img #next{
+			width:25px;
+			height:50px;
+			line-height: 50px;
+			text-align: center;
+			cursor: pointer;
+		}
+	</style>
+	
+
+
+</head>
+<body>
+    <div id="box">
+    	<div id="btn">
+    		<span class='on'>循环切换</span>
+    		<span>单边切换</span>
+    	</div>
+    	<div id="img">
+    		<ul>
+    			<li class='active'>1</li>
+    			<li>2</li>
+    			<li>3</li>
+    			<li>4</li>
+    			<li>5</li>
+    			<li>6</li>
+    		</ul>
+    		<p style='top:0;left:0;'><span>1</span>/6</p>
+    		<p style='bottom:0;left:0;'>第<span>一</span>张图片</p>
+    		<p id='prve' style='top:50%;left:0;margin-top:-25px;'>&lt;</p>
+    		<p id='next' style='top:50%;right:0;margin-top:-25px;'>&gt;</p>
+    	</div>
+    </div>
+    <script>
+    	var btnSpan = document.querySelectorAll('#btn span'),
+    		prve = document.querySelector('#prve'),
+    		next = document.querySelector('#next'),
+    		aLi = document.getElementsByTagName('li'),
+    		topSpan = document.querySelectorAll('#img p span'),
+    		arr = ['一','二','三','四','五','六'],
+    		index = 0,
+    		goudan = true,
+    		len = aLi.length;
+
+
+    		btnSpan[0].onclick = function(){
+    			this.className = 'on';
+    			btnSpan[1].className = '';
+    			goudan = true;
+    		}
+
+    		btnSpan[1].onclick = function(){
+    			this.className = 'on';
+    			btnSpan[0].className = '';
+    			goudan = false;
+    		}
+    		next.rufeng = true;
+    		next.onclick = dachui;
+    		
+    		prve.rufeng = false;
+    		prve.onclick = dachui;
+
+
+
+
+    		function dachui(){
+    			aLi[index].className = '';
+    			if (this.rufeng) {
+    				index++;
+    				if (index>=len) {
+	    				if (goudan) {
+	    					index = 0;
+	    				} else {
+	    					index = len-1;
+    						alert('已经是最后一张了! 没了')
+	    				}
+	    			}
+    			} else {
+    				index--;
+    				if (index<0) {
+    					if (goudan) {
+    						index = len-1;
+    					} else {
+    						index = 0;
+    						alert('这是第一张')
+    					}
+    				}
+
+    			}
+    			topSpan[0].innerHTML = index+1;
+    			topSpan[1].innerHTML = arr[index];
+    			aLi[index].className = 'active'
+    		}
+    </script>
+</body>
+</html>

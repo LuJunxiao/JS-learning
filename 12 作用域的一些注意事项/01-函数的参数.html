@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    /*
+    *       定义的过程包括了函数的参数 隐藏的定义的那一步，并且跟实参是同时执行的
+    *
+    * */
+    /*var a = 5;
+    fn(a)
+    function fn(a){
+        alert(a);
+            a = 10;
+        alert(a)
+    }
+    alert(a)*/
+
+    b(123)
+    function b(c){
+        alert(c)
+    }
+
+
+    //  5   10   5
+    /*
+    *       1.定义
+    *           var a;
+    *           function fn(a){
+                    alert(a)
+                    a = 10;
+                    alert(a)
+                }
+             2.执行
+                a = 5;
+                fn(a);   ---->   1.定义
+                                        var a(形参) = a（实参）  这两步是一起执行的
+                                 2.执行
+                                     alert(a)
+    *                                a = 10;
+    *                                 alert(a)
+    * */
+
+</script>
+</body>
+</html>

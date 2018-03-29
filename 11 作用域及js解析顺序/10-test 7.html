@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+
+    </style>
+</head>
+<body>
+<script>
+    var a = 0;
+    function fn() {
+        alert(a)
+        var a = 1;
+        alert(a)
+    }
+    fn()
+    alert(a)
+
+    // undefined   1   0
+        /*
+        *       1.定义
+        *           var a ；
+        *           function fn() {
+                        alert(2)
+                        var a = 1;
+                        alert(a)
+                    }
+                 2.执行
+                    a = 0;
+                    fn()   -----> 1.定义
+                                       var a；
+                                   2.执行
+                                       alert(a)
+                                       a = 1;
+                                       alert(a)
+
+        *             alert(a)//21
+        *
+        * */
+</script>
+</body>
+</html>

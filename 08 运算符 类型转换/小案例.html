@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+		li{
+			width: 200px;
+			height: 35px;
+			font-size: 20px;
+			text-align: center;
+			line-height: 35px;
+			font-weight: bold;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://git.oschina.net/cx-fy/personal/raw/master/byElement.js"></script>
+	
+</head>
+<body>
+    <ul id='box'></ul>
+    <script>
+    	var oUl = document.getElementsByTagName('ul')[0];
+    	var num = 8;
+    	var aLi = document.getElementsByTagName('li');
+    			//var aLi = document.querySelectorAll('li');
+    	
+    	/*
+			ID   querySelectorAll   querySelector;
+    	*/
+    	var	arr = ['#2749CF','#BEFA1E'];
+    		for (var i = 0; i < num; i++) {
+    			oUl.innerHTML += '<li></li>'
+    			aLi[i].style.background = arr[i%arr.length]
+    		}
+
+    </script>
+</body>
+</html>

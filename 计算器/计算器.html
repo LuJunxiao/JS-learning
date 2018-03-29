@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TZ-34期Js</title>
+    <style>
+        *{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+	    li{list-style: none;}
+        #box{
+            width:280px;
+            height: 380px;
+            border-radius: 10px;
+            margin:10px auto;
+            border:1px solid #ddd;
+            padding:10px;
+        }
+        #box p{
+            width:270px;
+            height: 50px;
+            padding-right:10px;
+            border:1px solid #ddd;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            line-height: 50px;
+        }
+        #box input{
+            width:50px;
+            height: 50px;
+            float: left;
+            font-size: 18px;
+            margin:10px;
+            font-weight: bold;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="p">0</p>
+        <input type="button" class="num" value="7">
+        <input type="button" class="num" value="8">
+        <input type="button" class="num" value="9">
+        <input type="button" class="symbol" value="+">
+        <input type="button" class="num" value="4">
+        <input type="button" class="num" value="5">
+        <input type="button" class="num" value="6">
+        <input type="button" class="symbol" value="-">
+        <input type="button" class="num" value="1">
+        <input type="button" class="num" value="2">
+        <input type="button" class="num" value="3">
+        <input type="button" class="symbol" value="*">
+        <input type="button" class="num" value="0">
+        <input type="button" class="num" value=".">
+        <input type="button" id="result" value="=">
+        <input type="button" class="symbol" value="/">
+
+    </div>
+    <script>
+        var oP = document.getElementById('p'),
+            num = document.getElementsByClassName('num'),
+            aSym = document.getElementsByClassName('symbol'),
+            res = document.getElementById('result'),
+            fuhao = '',     //用来存符号，存符号的目的就是为了判断当前操作的是第一个数还是第二个数
+            show = '',      //用来清空p标签里默认的0
+            fNum = '',      //用来存多一个数字（运算符前面的数字）
+            sNum = '';      //用来存第二个数字（运算符后面的数字）
+        var jieguo;
+
+        
+        for(var i=0; i<num.length; i++){
+            //批量注册点击事件（数字按钮）
+           num[i].onclick = function () {
+               if(fuhao){
+                     sNum += this.value;
+                     oP.innerHTML += this.value;
+               }else{
+                   show += this.value
+                   oP.innerHTML = show;
+               }
+           }
+        }
+
+        for(var i=0; i<aSym.length; i++){
+            //批量注册符号按钮的点击事件
+            aSym[i].onclick = function () {
+                if(fuhao){
+                    jieguo = '';
+                    switch (fuhao){
+                        case '+':
+                            jieguo = fNum*1 + sNum*1;
+                            break;
+                        case '-':
+                            jieguo = fNum - sNum;
+                            break;
+                        case '*':
+                            jieguo = fNum * sNum;
+                            break;
+                        case '/':
+                            if(sNum != '0'){
+                                jieguo = fNum/sNum;
+                            }else{
+                                alert('除数不能为0')
+                            }
+                    }
+                    fuhao = '';
+                    sNum = '';
+                    fNum = jieguo;
+                    oP.innerHTML += this.value;
+                }else{
+                    fNum = oP.innerHTML;
+
+                    oP.innerHTML += this.value;
+                }
+
+                fuhao = this.value;
+
+
+
+            }
+        }
+
+
+        res.onclick = function () {
+            jieguo = '';
+            switch (fuhao){
+                case '+':
+                    jieguo = fNum*1 + sNum*1;
+                    break;
+                case '-':
+                    jieguo = fNum - sNum;
+                    break;
+                case '*':
+                    jieguo = fNum * sNum;
+                    break;
+                case '/':
+                    if(sNum != '0'){
+                        jieguo = fNum/sNum;
+                    }else{
+                        alert('除数不能为0')
+                    }
+            }
+            oP.innerHTML = jieguo;
+
+        }
+    </script>
+</body>
+</html>

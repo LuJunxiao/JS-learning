@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html onselectstart='return false'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="FengYu">
+	<title>潭州教育</title>
+	<style>
+		*{margin:0;padding:0;font-family: Microsoft YaHei,serif;}
+		li{list-style: none;}
+
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://git.oschina.net/cx-fy/personal/raw/master/byElement.js"></script>
+
+</head>
+<body>
+    <div id="box"></div>
+    
+    <script type="text/javascript">
+    	//window.onload   当文档加载完成以后再执行相应的函数
+    	//document.write（）   在文档的后面追加内容，  
+    	/*
+			注意  document.write（）跟window.onload一起使用会出现问题
+    	*/
+    var box = document.getElementById('box');
+   		box.innerHTML = '<a href="http://www.baidu.com">风屿老师真的太帅了</a>';
+   		box.innerText = '<a href="http://www.baidu.com">风屿老师真的太帅了</a>';
+    </script>
+</body>
+</html>
